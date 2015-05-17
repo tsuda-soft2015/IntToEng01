@@ -19,7 +19,17 @@ public class IntoToEng {
 	    	if(n==0)return "zero";
 	    	
 	    	if(k>999){
-	    		ans += number[k/1000]+th(k);
+	    			if(k/1000<=10){
+	    				ans += number[k/1000]+th(k);
+	    			}
+	    			else{
+	    		    	int forBoss2 = k/1000;
+	    		    	int forNumber2 = forBoss2%10;
+	    		        if(forNumber2==0) ans += " "+ boss[forBoss2];
+	    		        else if(forBoss2>20 && forNumber2!=0) ans += boss[forBoss2/10]+" "+number[forNumber2];
+	    		        else ans += " " + number[k/10000];
+	    		       ans += " thousand";
+	    			}
 	    		k=k%1000;
 	    		if(k!=0) ans += " ";
 	    	}
